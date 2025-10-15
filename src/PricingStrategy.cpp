@@ -1,5 +1,6 @@
 #include "../include/PricingStrategy.h"
 #include <iostream>
+using namespace std;
 
 // DefaultPricing implementation
 double DefaultPricing::calculateFare(double distance, double baseRate) const {
