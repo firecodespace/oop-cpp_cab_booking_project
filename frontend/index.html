@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ride Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Smart Ride Booking System</h1>
+        </header>
+        
+        <nav>
+            <button class="nav-btn active" onclick="showSection('add-driver')">Add Driver</button>
+            <button class="nav-btn" onclick="showSection('add-customer')">Add Customer</button>
+            <button class="nav-btn" onclick="showSection('book-ride')">Book Ride</button>
+            <button class="nav-btn" onclick="showSection('view-rides')">View Rides</button>
+            <button class="nav-btn" onclick="showSection('stats')">Statistics</button>
+        </nav>
+        
+        <!-- Add Driver Section -->
+        <div id="add-driver" class="section active">
+            <h2>Add New Driver</h2>
+            <form id="driver-form">
+                <input type="text" id="driver-name" placeholder="Driver Name" required>
+                <input type="text" id="driver-phone" placeholder="Phone Number" required>
+                <input type="text" id="vehicle-model" placeholder="Vehicle Model" required>
+                <input type="text" id="vehicle-reg" placeholder="Registration Number" required>
+                <select id="vehicle-type" required>
+                    <option value="">Select Vehicle Type</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Hatchback">Hatchback</option>
+                </select>
+                <input type="number" id="driver-rating" placeholder="Rating (0-5)" step="0.1" min="0" max="5" required>
+                <button type="submit">Add Driver</button>
+            </form>
+            <div id="driver-result" class="result"></div>
+        </div>
+        
+        <!-- Add Customer Section -->
+        <div id="add-customer" class="section">
+            <h2>Add New Customer</h2>
+            <form id="customer-form">
+                <input type="text" id="customer-name" placeholder="Customer Name" required>
+                <input type="text" id="customer-phone" placeholder="Phone Number" required>
+                <button type="submit">Add Customer</button>
+            </form>
+            <div id="customer-result" class="result"></div>
+        </div>
+        
+        <!-- Book Ride Section -->
+        <div id="book-ride" class="section">
+            <h2>Book a Ride</h2>
+            <form id="booking-form">
+                <select id="customer-select" required>
+                    <option value="">Select Customer</option>
+                </select>
+                <input type="text" id="destination" placeholder="Destination" required>
+                <input type="number" id="distance" placeholder="Distance (km)" step="0.1" min="0.1" required>
+                <button type="submit">Book Ride</button>
+            </form>
+            <div id="booking-result" class="result"></div>
+        </div>
+        
+        <!-- View Rides Section -->
+        <div id="view-rides" class="section">
+            <h2>All Rides</h2>
+            <button onclick="loadRides()">Refresh Rides</button>
+            <div id="rides-list" class="rides-container"></div>
+        </div>
+        
+        <!-- Statistics Section -->
+        <div id="stats" class="section">
+            <h2>System Statistics</h2>
+            <button onclick="loadStats()">Refresh Stats</button>
+            <div id="stats-content" class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Drivers</h3>
+                    <p id="total-drivers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Customers</h3>
+                    <p id="total-customers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Rides</h3>
+                    <p id="active-rides">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p id="total-revenue">₹0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
